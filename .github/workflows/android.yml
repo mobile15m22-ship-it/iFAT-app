@@ -20,10 +20,13 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Setup and Build with Gradle
+    - name: Setup Gradle Version
       uses: gradle/actions/setup-gradle@v3
       with:
-        arguments: assembleDebug
+        gradle-version: '8.7'
+
+    - name: Build Debug APK
+      run: gradle assembleDebug
 
     - name: Upload APK
       uses: actions/upload-artifact@v4
